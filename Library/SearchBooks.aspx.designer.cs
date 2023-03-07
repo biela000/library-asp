@@ -11,8 +11,17 @@ namespace Library
 {
 
 
-    public partial class Books
+    public partial class SearchBooks
     {
+
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// TitleLb control.
@@ -51,30 +60,12 @@ namespace Library
         protected global::System.Web.UI.WebControls.TextBox AuthorsTb;
 
         /// <summary>
-        /// SerchBtn control.
+        /// SearchBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SerchBtn;
-
-        /// <summary>
-        /// BooksGridVw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView BooksGridVw;
-
-        /// <summary>
-        /// StatusLb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StatusLb;
+        protected global::System.Web.UI.WebControls.Button SearchBtn;
     }
 }

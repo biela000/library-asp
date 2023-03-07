@@ -9,6 +9,18 @@
 </head>
 <body>
     <form runat="server">
+        <div class="search-container">
+            <div class="input-set">
+                <asp:Label runat="server" ID="TitleLb" AssociatedControlID="TitleTb">Title</asp:Label>
+                <asp:TextBox runat="server" ID="TitleTb" />
+            </div>
+            <div>OR</div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="AuthorsLb" AssociatedControlID="AuthorsTb">Authors</asp:Label>
+                <asp:TextBox runat="server" ID="AuthorsTb" />
+            </div>
+            <asp:Button runat="server" ID="SerchBtn" Text="Search" OnClick="SerchBtn_Click" />
+        </div>
     <asp:GridView ID="BooksGridVw" AllowPaging="true" runat="server" OnRowCommand="BooksGridVw_RowCommand">
         <Columns>
             <asp:TemplateField>

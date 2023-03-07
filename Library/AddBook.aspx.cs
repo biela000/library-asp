@@ -24,7 +24,7 @@ namespace Library
                 MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"] as string);
                 try
                 {
-                    var bookInfo = DatabaseUtils.GetOneBook(connection, editedRecordId);
+                    var bookInfo = DatabaseUtils.GetOneBookById(connection, editedRecordId);
                     IdTb.Text = bookInfo[0];
                     AuthorsTb.Text = bookInfo[1];
                     TitleTb.Text = bookInfo[2];

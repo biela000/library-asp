@@ -20,6 +20,12 @@ namespace Library
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM books";
             MySqlDataReader reader = command.ExecuteReader();
+            FillGridViewWithData(reader);
+            connection.Close();
+        }
+
+        private void FillGridViewWithData(MySqlDataReader reader)
+        {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Authors", typeof(string));
@@ -67,5 +73,20 @@ namespace Library
                 }
             }
         }
+
+        protected void SerchBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"] as string);
+                var reader = DatabaseUtils.GetBooksByTitleAndAuthors(connection, TitleTb.Text, AuthorsTb.Text);
+                FillGridViewWithData(reader);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+       }
     }
 }

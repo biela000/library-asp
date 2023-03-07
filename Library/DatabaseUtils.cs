@@ -126,7 +126,7 @@ namespace Library
             command.ExecuteNonQuery();
         }
 
-        public static string[] GetOneBook(MySqlConnection connection, int id)
+        public static string[] GetOneBookById(MySqlConnection connection, int id)
         {
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM books WHERE Id = @Id";
@@ -162,6 +162,16 @@ namespace Library
             command.CommandText = "DELETE FROM books WHERE Id=@Id";
             command.Parameters.AddWithValue("@Id", id);
             command.ExecuteNonQuery();
+        }
+
+        public static MySqlDataReader GetBooksByTitleAndAuthors(MySqlConnection connection, string title, string authors)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM books WHERE Title LIKE \'%@Title%\' OR Authors LIKE \'%@Authors%\'";
+            command.Parameters.AddWithValue("@Title", title);
+            command.Parameters.AddWithValue("@Authors", authors);
+            var reader = command.ExecuteReader();
+            return reader;
         }
     }
 }
