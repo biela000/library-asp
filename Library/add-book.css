@@ -1,0 +1,25 @@
+﻿#GoBackBtn {
+    position: fixed;
+    bottom: var(--xs);
+    left: var(--xs);
+}
+
+.id-input-set {
+    margin-bottom: var(--lg);
+}
+
+#StatusLb {
+    display: block;
+    margin: auto;
+    color: var(--accent);
+    font-size: var(--md);
+    text-align: center;
+}
+
+.input-set {
+    margin-bottom: var(--md);
+}
+
+body {
+    padding-bottom: var(--md);
+}

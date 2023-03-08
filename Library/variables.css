@@ -1,0 +1,20 @@
+﻿:root {
+    --eerie-black: #191716ff;
+    --black-bean: #440d0fff;
+    --eggplant: #603a40ff;
+    --rose-taupe: #84596bff;
+    --rose-quartz: #af9bb6ff;
+    --bg: var(--eerie-black);
+    --fg: #eeeeeeff;
+    --accent: var(--rose-taupe);
+    --accent2: var(--rose-quartz);
+    --accent3: var(--eggplant);
+    --accent4: var(--black-bean);
+    --root-fs: 16px;
+    --xs: 0.8rem;
+    --sm: 1.2rem;
+    --md: 1.6rem;
+    --lg: 2.4rem;
+    --xl: 3.2rem;
+    --xxl: 4.8rem;
+}

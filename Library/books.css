@@ -1,0 +1,58 @@
+﻿#LogoutBtn {
+    position: fixed;
+    bottom: var(--xs);
+    left: var(--xs);
+}
+
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--xs);
+}
+
+.connector {
+    display: grid;
+    place-items: center;
+    font-size: var(--lg);
+}
+
+#SerchBtn {
+    grid-column: 1 / 4;
+}
+
+#BooksGridVw {
+    margin: auto;
+    margin-top: var(--sm);
+    border: 1px solid var(--accent);
+}
+
+#BooksGridVw th {
+    background-color: var(--accent);
+    color: var(--fg);
+    font-size: var(--md);
+}
+
+#BooksGridVw th, #BooksGridVw td {
+    border: 1px solid var(--accent2);
+    padding: var(--xs);
+}
+
+#BooksGridVw tr:nth-child(2n) {
+    background-color: #1f1f1fff;
+}
+
+#BooksGridVw tr:hover {
+    background-color: #3f3f3fff;
+}
+
+a {
+    color: var(--accent);
+}
+
+.new-book-link {
+    text-align: center;
+    font-size: var(--md);
+    display: block;
+    margin: auto;
+    margin-top: var(--sm);
+}

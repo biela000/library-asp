@@ -31,7 +31,7 @@ namespace Library
                 MySqlConnection connection = new MySqlConnection(connectionString);
                 connection.Open();
                 return connection;
-            } catch (MySqlException ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine("There was an error connecting to the database " + ex);
                 return null;
@@ -168,8 +168,8 @@ namespace Library
         {
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM books WHERE Title LIKE @Title OR Authors LIKE @Authors";
-            command.Parameters.AddWithValue("@Title", title == "" ? title : "%" + title + "%");
-            command.Parameters.AddWithValue("@Authors", authors == "" ? authors : "%" + authors + "%");
+            command.Parameters.AddWithValue("@Title", "%" + title + "%");
+            command.Parameters.AddWithValue("@Authors", "%" + authors + "%");
             var reader = command.ExecuteReader();
             return reader;
         }

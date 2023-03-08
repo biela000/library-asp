@@ -38,8 +38,6 @@ namespace Library
             StatusLb.Text = "";
             while (reader.Read())
             {
-                StatusLb.Text = reader.GetString("Id");
-                StatusLb.Visible = true;
                 DataRow row = dt.NewRow();
                 row["ID"] = reader.GetInt16("Id");
                 row["Authors"] = reader.GetString("Authors");
@@ -91,5 +89,11 @@ namespace Library
                 StatusLb.Text = ex.Message;
             }
        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Response.Cookies["JWT"].Value = "";
+            Response.Redirect("/Login.aspx");
+        }
     }
 }

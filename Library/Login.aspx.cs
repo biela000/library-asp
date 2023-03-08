@@ -28,6 +28,11 @@ namespace Library
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
+            Page.Validate("RegisterValidators");
+            if (!Page.IsValid && RegisterCheckbox.Checked)
+            {
+                return;
+            }
             bool isUserNew = RegisterCheckbox.Checked;
             connection = DatabaseUtils.Connect(Session["ConnectionString"].ToString());
             string hashedPassword = DatabaseUtils.HashPassword(PasswordTb.Text);
@@ -46,6 +51,9 @@ namespace Library
                     RegisterCheckbox.Checked = false;
                     LoginMessageLb.Text = "Your account has been created";
                     LoginMessageLb.Visible = true;
+                    EmailInputPanel.Visible = false;
+                    EmailInputPanel.Enabled = false;
+                    LoginBtn.Text = "Login";
                 } catch (MySqlException ex) {
                     LoginMessageLb.Text = "Login is already taken";
                     LoginMessageLb.Visible = true;
@@ -114,6 +122,12 @@ namespace Library
             EmailInputPanel.Visible = RegisterCheckbox.Checked;
             EmailInputPanel.Enabled = RegisterCheckbox.Checked;
             LoginBtn.Text = RegisterCheckbox.Checked ? "Register" : "Login";
+            if (!RegisterCheckbox.Checked)
+            {
+                LoginRfv.Enabled = false;
+                PasswordRev.Enabled = false;
+                EmailRev.Enabled = false;
+            }
         }
     }
 }

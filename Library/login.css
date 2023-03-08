@@ -1,0 +1,31 @@
+﻿.main-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sm);
+    padding-top: var(--md);
+}
+
+.input-set, .checkbox-set {
+    width: calc((100% - 3 * var(--sm)) / 2);
+}
+
+.password-set, .checkbox-set {
+    padding-left: calc(2 * var(--sm));
+    width: 100%;
+}
+
+.checkbox-set {
+    font-size: var(--md);
+    width: 100%;
+}
+
+#LoginBtn {
+    margin-left: calc(2 * var(--sm));
+}
+
+#LoginMessageLb {
+    text-align: center;
+    font-size: var(--md);
+    display: block;
+    margin: auto;
+}

@@ -59,6 +59,11 @@ namespace Library
 
         protected void AddBookBtn_Click(object sender, EventArgs e)
         {
+            Page.Validate("BookValidators");
+            if (!Page.IsValid)
+            {
+                return;
+            }
             MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"] as string);
             try
             {
