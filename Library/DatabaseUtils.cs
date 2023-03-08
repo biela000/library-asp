@@ -167,9 +167,9 @@ namespace Library
         public static MySqlDataReader GetBooksByTitleAndAuthors(MySqlConnection connection, string title, string authors)
         {
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM books WHERE Title LIKE \'%@Title%\' OR Authors LIKE \'%@Authors%\'";
-            command.Parameters.AddWithValue("@Title", title);
-            command.Parameters.AddWithValue("@Authors", authors);
+            command.CommandText = "SELECT * FROM books WHERE Title LIKE @Title OR Authors LIKE @Authors";
+            command.Parameters.AddWithValue("@Title", title == "" ? title : "%" + title + "%");
+            command.Parameters.AddWithValue("@Authors", authors == "" ? authors : "%" + authors + "%");
             var reader = command.ExecuteReader();
             return reader;
         }

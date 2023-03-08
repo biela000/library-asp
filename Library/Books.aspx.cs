@@ -16,7 +16,7 @@ namespace Library
         {
             DatabaseUtils.ProtectUnlessLoggedIn(Response, Request.Cookies["JWT"]);
             DatabaseUtils.ProtectUnlessConnectedToDb(Response, Session["ConnectionString"] as string);
-            MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"].ToString());
+            MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"] as string);
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM books";
             MySqlDataReader reader = command.ExecuteReader();
@@ -35,8 +35,11 @@ namespace Library
             dt.Columns.Add("Format", typeof(string));
             dt.Columns.Add("Pages", typeof(int));
             dt.Columns.Add("Description", typeof(string));
+            StatusLb.Text = "";
             while (reader.Read())
             {
+                StatusLb.Text = reader.GetString("Id");
+                StatusLb.Visible = true;
                 DataRow row = dt.NewRow();
                 row["ID"] = reader.GetInt16("Id");
                 row["Authors"] = reader.GetString("Authors");
@@ -85,7 +88,7 @@ namespace Library
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                StatusLb.Text = ex.Message;
             }
        }
     }

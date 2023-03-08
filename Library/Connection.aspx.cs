@@ -30,6 +30,7 @@ namespace Library
             } else
             {
                 ConnectionStatusLb.Text = "Could not connect to the database";
+                Session["ConnectionString"] = null;
             }
         }
 

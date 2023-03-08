@@ -76,7 +76,7 @@ namespace Library
                     StatusLb.Text = TitleTb.Text;
                     StatusLb.Visible = true;
                     DatabaseUtils.UpdateBook(connection, editedRecordId,
-                                            "ioacsasilkcaliknc",
+                                            AuthorsTb.Text,
                                             TitleTb.Text, Release_dateTb.Text,
                                         ISBNTb.Text, FormatTb.Text,
                                         int.Parse(PagesTb.Text), DescriptionTb.Text);
