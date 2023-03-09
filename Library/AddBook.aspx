@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="main-header">
-        <h1>Add a new book</h1>
+        <asp:Label ID="SiteTitleLb" runat="server">Add a new book</asp:Label>
     </div>
     <form id="form1" runat="server" class="main-form">
         <asp:Button ID="GoBackBtn" runat="server" OnClick="GoBackBtn_Click" Text="Go back" />

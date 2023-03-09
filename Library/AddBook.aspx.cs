@@ -44,6 +44,11 @@ namespace Library
                 isInEditMode = true;
                 editedRecordId = int.Parse(Request.QueryString["id"]);
             }
+            if (isInEditMode)
+            {
+                SiteTitleLb.Text = "Edit an existing book";
+                AddBookBtn.Text = "Edit book";
+            }
         }
 
         private void ClearTbs()
