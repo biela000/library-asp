@@ -30,6 +30,30 @@
                 <asp:Label runat="server" ID="AuthorsLb" AssociatedControlID="AuthorsTb">Authors</asp:Label>
                 <asp:TextBox runat="server" ID="AuthorsTb" />
             </div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="Release_dateLb" AssociatedControlID="Release_dateTb">Release_date</asp:Label>
+                <asp:TextBox runat="server" ID="Release_dateTb" />
+            </div>
+            <div class="connector">OR</div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="ISBNLb" AssociatedControlID="ISBNTb">ISBN</asp:Label>
+                <asp:TextBox runat="server" ID="ISBNTb" />
+            </div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="FormatLb" AssociatedControlID="FormatTb">Format</asp:Label>
+                <asp:TextBox runat="server" ID="FormatTb" />
+            </div>
+            <div class="connector">OR</div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="PagesLb" AssociatedControlID="PagesTb">Pages</asp:Label>
+                <asp:TextBox runat="server" ID="PagesTb" TextMode="Number" />
+            </div>
+            <div class="input-set">
+                <asp:Label runat="server" ID="DescriptionLb" AssociatedControlID="DescriptionTb">Description</asp:Label>
+                <asp:TextBox runat="server" ID="DescriptionTb" />
+            </div>
+
+
             <asp:Button runat="server" ID="SerchBtn" Text="Search" OnClick="SerchBtn_Click" />
         </div>
         <asp:GridView ID="BooksGridVw" AllowPaging="true" runat="server" OnRowCommand="BooksGridVw_RowCommand">

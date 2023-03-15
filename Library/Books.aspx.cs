@@ -80,7 +80,7 @@ namespace Library
             try
             {
                 MySqlConnection connection = DatabaseUtils.Connect(Session["ConnectionString"] as string);
-                var reader = DatabaseUtils.GetBooksByTitleAndAuthors(connection, TitleTb.Text, AuthorsTb.Text);
+                var reader = DatabaseUtils.GetBooksByTitleAndAuthors(connection, TitleTb.Text, AuthorsTb.Text, Release_dateTb.Text, ISBNTb.Text, FormatTb.Text, PagesTb.Text, DescriptionTb.Text);
                 FillGridViewWithData(reader);
                 connection.Close();
             }

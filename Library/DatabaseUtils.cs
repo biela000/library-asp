@@ -164,12 +164,24 @@ namespace Library
             command.ExecuteNonQuery();
         }
 
-        public static MySqlDataReader GetBooksByTitleAndAuthors(MySqlConnection connection, string title, string authors)
+        public static MySqlDataReader GetBooksByTitleAndAuthors(MySqlConnection connection, string title, string authors, string release_date, string ISBN, string format, string pages, string description)
         {
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM books WHERE Title LIKE @Title OR Authors LIKE @Authors";
-            command.Parameters.AddWithValue("@Title", "%" + title + "%");
-            command.Parameters.AddWithValue("@Authors", "%" + authors + "%");
+            if (title == "" && authors == "" && release_date == "" && ISBN == "" && format == "" && pages == "" && description == "")
+            {
+                command.CommandText = "SELECT * FROM books";
+            }
+            else
+            {
+                command.CommandText = "SELECT * FROM books WHERE Title=@Title OR Authors=@Authors OR Release_date=@Release_date OR ISBN=@ISBN OR Format=@Format OR Pages=@Pages OR Description=@Description";
+            }
+            command.Parameters.AddWithValue("@Title", title);
+            command.Parameters.AddWithValue("@Authors", authors);
+            command.Parameters.AddWithValue("@Release_date", release_date);
+            command.Parameters.AddWithValue("@ISBN", ISBN);
+            command.Parameters.AddWithValue("@Format", format);
+            command.Parameters.AddWithValue("@Pages", pages);
+            command.Parameters.AddWithValue("@Description", description);
             var reader = command.ExecuteReader();
             return reader;
         }
